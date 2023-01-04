@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 import InstrCourseSelect from './pages/InstrCourseSelect';
 import InstrGenPref from './pages/InstrGenPref';
 import ReleaserCourseSelect from './pages/ReleaserCourseSelect';
@@ -10,7 +10,7 @@ import Header from './components/Header';
 function App() {
     return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='instructor_select' element={<InstrCourseSelect />} />
