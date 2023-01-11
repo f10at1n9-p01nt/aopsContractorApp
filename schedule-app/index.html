@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><link rel="stylesheet" href="/index.93522bb3.css">
     <meta charset="UTF-8">
     <title>Schedule App</title>
-    <style>.container {
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <style>body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+}
+
+.container {
   height: 100vh;
-  width: 80vw;
+  width: 100vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -15,14 +22,7 @@
 h1 {
   color: #1b365d;
   text-align: center;
-  padding: .5em 0;
   font-size: 2rem;
-}
-
-@media screen and (max-width: 680px) {
-  h1 {
-    font-size: 1rem;
-  }
 }
 
 .logo {
@@ -33,6 +33,7 @@ h1 {
 }
 
 .form {
+  width: 80vw;
   flex-direction: column;
   align-items: center;
   display: flex;
@@ -42,7 +43,8 @@ h1 {
   box-sizing: border-box;
   width: 100%;
   border-radius: 5px;
-  padding: .5rem;
+  padding: .75rem .35rem;
+  font-size: 1.5rem;
 }
 
 button {
@@ -50,7 +52,7 @@ button {
   background-color: #d1d3d4;
   border: 1px solid #1b365d;
   border-radius: .375rem;
-  padding: .375rem .75rem;
+  padding: .95rem;
   font-size: 1.25rem;
 }
 
@@ -64,8 +66,46 @@ button:hover {
 }
 
 .column {
-  width: 80%;
-  margin: 2px 0;
+  width: 100%;
+  margin-bottom: .25rem;
+}
+
+@media (min-width: 45em) {
+  .row {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .column {
+    margin: 0;
+  }
+
+  .col-field {
+    flex-grow: 2;
+    flex-basis: 75%;
+  }
+
+  .col-button {
+    flex-basis: 25%;
+    margin-left: auto;
+  }
+
+  button {
+    margin-left: .25rem;
+  }
+}
+
+@media (min-width: 60em) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .row {
+    width: 70%;
+  }
 }
 
 
@@ -2579,13 +2619,13 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"axcZ6":[function(require,module,exports) {
+},{}],"jiK7B":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "228af5689616fc00";
+module.bundle.HMR_BUNDLE_ID = "3ca36df1a902af37";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -2968,7 +3008,7 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"cc6EV":[function(require,module,exports) {
+},{}],"d7jqD":[function(require,module,exports) {
 var _indexJs = require("./index.js");
 
 },{"./index.js":"8lqZg"}],"8lqZg":[function(require,module,exports) {
@@ -29045,7 +29085,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _formik = require("formik");
-// import './login.scss';
+var _loginScss = require("./login.scss");
 // import Logo from '../images/AopS_Online_Logos_AOPS Online Cube.png';
 var _main = require("../../../schedule-app/main");
 const Login = ()=>{
@@ -29058,6 +29098,7 @@ const Login = ()=>{
         className: "container",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "row",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: "https://drive.google.com/uc?export=download&id=1FWBU6pBY7HQOgk-g0cUnepsRVtnf7fUQ",
                     className: "logo"
@@ -29091,13 +29132,12 @@ const Login = ()=>{
                 },
                 onSubmit: handleSubmit,
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formik.Form), {
-                    style: {
-                        width: "100%"
-                    },
+                    className: "form",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "row",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "column",
+                                className: "column col-field",
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formik.Field), {
                                     id: "username",
                                     name: "username",
@@ -29114,7 +29154,7 @@ const Login = ()=>{
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "column",
+                                className: "column col-button",
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                     type: "submit",
                                     children: "Enter Site"
@@ -29161,7 +29201,7 @@ $RefreshReg$(_c, "Login");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","formik":"aefoQ","../../../schedule-app/main":"96eSo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aefoQ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","formik":"aefoQ","./login.scss":"xVGDL","../../../schedule-app/main":"96eSo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aefoQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ErrorMessage", ()=>ErrorMessage);
@@ -34034,7 +34074,7 @@ var _baseCloneJsDefault = parcelHelpers.interopDefault(_baseCloneJs);
 }
 exports.default = cloneDeep;
 
-},{"./_baseClone.js":"dBps5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"96eSo":[function(require,module,exports) {
+},{"./_baseClone.js":"dBps5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"xVGDL":[function() {},{}],"96eSo":[function(require,module,exports) {
 function doGet() {
     return HtmlService.createTemplateFromFile("index").evaluate().addMetaTag("viewport", "width=device-width, initial-scale=1.0");
 }
@@ -34378,7 +34418,7 @@ $RefreshReg$(_c, "Schedule");
 // }
 // export default Header;
 
-},{}]},["1xC6H","axcZ6","cc6EV"], "cc6EV", "parcelRequire3067")
+},{}]},["1xC6H","jiK7B","d7jqD"], "d7jqD", "parcelRequire3067")
 
 </script>
 </body>

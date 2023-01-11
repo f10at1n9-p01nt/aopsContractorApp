@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik';
-// import './login.scss';
+import * as style from './login.scss';
 // import Logo from '../images/AopS_Online_Logos_AOPS Online Cube.png';
 import { authenticateUser } from '../../../schedule-app/main';
 
@@ -12,7 +12,7 @@ const Login = () => {
 
     return (
         <div className='container'>
-            <div>
+            <div className='row'>
                 {/* <img src={Logo} alt="AoPS Online Logo" /> */}
                 <img src="https://drive.google.com/uc?export=download&id=1FWBU6pBY7HQOgk-g0cUnepsRVtnf7fUQ" 
                     className='logo'></img>
@@ -24,16 +24,16 @@ const Login = () => {
                 initialValues={{username: ''}}
                 onSubmit={handleSubmit}
             >
-                <Form style={{width: '100%'}}>
-                    <div>
-                        <div className='column'>
+                <Form className='form'>
+                    <div className='row'>
+                        <div className='column col-field'>
                                 <Field
                                     id='username'
                                     name='username'
                                     className='username'
                                     placeholder='username' />
                         </div>
-                        <div className='column'>
+                        <div className='column col-button'>
                                 <button type="submit">Enter Site</button>
                         </div>
                     </div>
