@@ -4,9 +4,10 @@ import * as style from './login.scss';
 import { authenticateUser } from '../../../schedule-app/main';
 
 const Login = () => {
-    const handleSubmit = (values, { resetForm }) => {
-        console.log(values);
-        // authenticateUser(username);
+    const handleSubmit = ({ username }, { resetForm }) => {
+        console.log(username);
+        google.script.run.withSuccessHandler((result) => console.log(result)).authenticateUser(username);
+        // google.script.run.authenticateUser(values.username);
         resetForm();
     }
 

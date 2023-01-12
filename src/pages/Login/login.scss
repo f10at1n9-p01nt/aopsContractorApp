@@ -64,6 +64,10 @@ button:hover {
 
 /* small tablet styles */
 @media (min-width: 45em) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
     .row {
         display: flex;
         align-items: center;
@@ -92,9 +96,6 @@ button:hover {
 
 /* large tablet and laptop styles */
 @media (min-width: 60em) {
-    h1 {
-        font-size: 2.5rem;
-    }
 }
 
 /* desktop styles */
