@@ -28997,6 +28997,9 @@ var _scheduleDefault = parcelHelpers.interopDefault(_schedule);
 var _header = require("./components/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
 function App() {
+    // if (!loggedIn) {
+    //   return <Login setLoggedIn={setLoggedIn}/>
+    // }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
             children: [
@@ -29005,62 +29008,62 @@ function App() {
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 16,
-                    columnNumber: 9
+                    lineNumber: 21,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "instructor_select",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _instrCourseSelectDefault.default), {}, void 0, false, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 17,
-                    columnNumber: 9
+                    lineNumber: 22,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "instructor_genpref",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _instrGenPrefDefault.default), {}, void 0, false, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 18,
-                    columnNumber: 9
+                    lineNumber: 23,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "releaser_select",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _releaserCourseSelectDefault.default), {}, void 0, false, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 19,
-                    columnNumber: 9
+                    lineNumber: 24,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "releaser_genpref",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _releaserGenPrefDefault.default), {}, void 0, false, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 20,
-                    columnNumber: 9
+                    lineNumber: 25,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "schedule",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _scheduleDefault.default), {}, void 0, false, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 21,
-                    columnNumber: 9
+                    lineNumber: 26,
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "*",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 22,
-                    columnNumber: 9
+                    lineNumber: 27,
+                    columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/App.js",
-            lineNumber: 15,
-            columnNumber: 7
+            lineNumber: 20,
+            columnNumber: 5
         }, this)
     }, void 0, false);
 }
@@ -29085,16 +29088,34 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _formik = require("formik");
+var _react = require("react");
 var _loginScss = require("./login.scss");
 // import Logo from '../images/AopS_Online_Logos_AOPS Online Cube.png';
 var _main = require("../../../schedule-app/main");
+var _instrCourseSelect = require("../InstrCourseSelect");
+var _instrCourseSelectDefault = parcelHelpers.interopDefault(_instrCourseSelect);
+var _header = require("../../components/Header");
+var _headerDefault = parcelHelpers.interopDefault(_header);
+var _s = $RefreshSig$();
 const Login = ()=>{
+    _s();
+    const [loggedIn, setLoggedIn] = (0, _react.useState)(false);
     const handleSubmit = ({ username  }, { resetForm  })=>{
         console.log(username);
-        google.script.run.withSuccessHandler((result)=>console.log(result)).authenticateUser(username);
-        // google.script.run.authenticateUser(values.username);
+        // google.script.run.withSuccessHandler((result) => console.log(result)).authenticateUser(username);
+        google.script.run.withSuccessHandler(setLoggedIn).authenticateUser(username);
         resetForm();
     };
+    if (loggedIn) {
+        console.log(loggedIn);
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _instrCourseSelectDefault.default), {}, void 0, false, {
+                fileName: "src/pages/Login/Login.js",
+                lineNumber: 23,
+                columnNumber: 17
+            }, undefined)
+        }, void 0, false);
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "container",
         children: [
@@ -29105,12 +29126,12 @@ const Login = ()=>{
                     className: "logo"
                 }, void 0, false, {
                     fileName: "src/pages/Login/Login.js",
-                    lineNumber: 18,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/Login/Login.js",
-                lineNumber: 16,
+                lineNumber: 31,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29119,12 +29140,12 @@ const Login = ()=>{
                     children: "Instructor Scheduling"
                 }, void 0, false, {
                     fileName: "src/pages/Login/Login.js",
-                    lineNumber: 22,
+                    lineNumber: 37,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/Login/Login.js",
-                lineNumber: 21,
+                lineNumber: 36,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formik.Formik), {
@@ -29146,12 +29167,12 @@ const Login = ()=>{
                                     placeholder: "username"
                                 }, void 0, false, {
                                     fileName: "src/pages/Login/Login.js",
-                                    lineNumber: 31,
+                                    lineNumber: 46,
                                     columnNumber: 33
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/pages/Login/Login.js",
-                                lineNumber: 30,
+                                lineNumber: 45,
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29161,37 +29182,38 @@ const Login = ()=>{
                                     children: "Enter Site"
                                 }, void 0, false, {
                                     fileName: "src/pages/Login/Login.js",
-                                    lineNumber: 38,
+                                    lineNumber: 53,
                                     columnNumber: 33
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/pages/Login/Login.js",
-                                lineNumber: 37,
+                                lineNumber: 52,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/Login/Login.js",
-                        lineNumber: 29,
+                        lineNumber: 44,
                         columnNumber: 21
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/pages/Login/Login.js",
-                    lineNumber: 28,
+                    lineNumber: 43,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/Login/Login.js",
-                lineNumber: 24,
+                lineNumber: 39,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/Login/Login.js",
-        lineNumber: 15,
+        lineNumber: 30,
         columnNumber: 9
     }, undefined);
 };
+_s(Login, "rumETxDPcQWJcg8a6Y55ZSVDz7g=");
 _c = Login;
 exports.default = Login;
 var _c;
@@ -29202,7 +29224,7 @@ $RefreshReg$(_c, "Login");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","formik":"aefoQ","./login.scss":"xVGDL","../../../schedule-app/main":"96eSo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aefoQ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","formik":"aefoQ","./login.scss":"xVGDL","../../../schedule-app/main":"96eSo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","../InstrCourseSelect":"d6ErA","../../components/Header":"hsJbF"}],"aefoQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ErrorMessage", ()=>ErrorMessage);
@@ -34255,7 +34277,201 @@ $RefreshReg$(_c, "InstrCourseSelect");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6GfpP":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hsJbF":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$bfed = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$bfed.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRouterDom = require("react-router-dom");
+const Header = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Navbar, {
+        color: "light",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Nav, {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(NavItem, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.NavLink), {
+                        to: "/",
+                        className: "nav-link",
+                        children: "Login"
+                    }, void 0, false, {
+                        fileName: "src/components/Header.js",
+                        lineNumber: 8,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Header.js",
+                    lineNumber: 7,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(NavItem, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(UncontrolledDropdown, {
+                        inNavbar: true,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DropdownToggle, {
+                                nav: true,
+                                caret: true,
+                                children: "Instructors"
+                            }, void 0, false, {
+                                fileName: "src/components/Header.js",
+                                lineNumber: 14,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DropdownMenu, {
+                                right: true,
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DropdownItem, {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.NavLink), {
+                                            to: "/instructor_select",
+                                            className: "nav-link",
+                                            children: "Instructor Course Selection"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Header.js",
+                                            lineNumber: 19,
+                                            columnNumber: 33
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/Header.js",
+                                        lineNumber: 18,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DropdownItem, {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.NavLink), {
+                                            to: "/instructor_genpref",
+                                            className: "nav-link",
+                                            children: "Instructor General Preferences"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Header.js",
+                                            lineNumber: 24,
+                                            columnNumber: 33
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/Header.js",
+                                        lineNumber: 23,
+                                        columnNumber: 29
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Header.js",
+                                lineNumber: 17,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Header.js",
+                        lineNumber: 13,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Header.js",
+                    lineNumber: 12,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(NavItem, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(UncontrolledDropdown, {
+                        inNavbar: true,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DropdownToggle, {
+                                nav: true,
+                                caret: true,
+                                children: "Graders"
+                            }, void 0, false, {
+                                fileName: "src/components/Header.js",
+                                lineNumber: 33,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DropdownMenu, {
+                                end: true,
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DropdownItem, {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.NavLink), {
+                                            to: "/releaser_select",
+                                            className: "nav-link",
+                                            children: "Releaser Course Selection"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Header.js",
+                                            lineNumber: 38,
+                                            columnNumber: 33
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/Header.js",
+                                        lineNumber: 37,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(DropdownItem, {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.NavLink), {
+                                            to: "/releaser_genpref",
+                                            className: "nav-link",
+                                            children: "Releaser General Preferences"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Header.js",
+                                            lineNumber: 43,
+                                            columnNumber: 33
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/Header.js",
+                                        lineNumber: 42,
+                                        columnNumber: 29
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Header.js",
+                                lineNumber: 36,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Header.js",
+                        lineNumber: 32,
+                        columnNumber: 17
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Header.js",
+                    lineNumber: 31,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(NavItem, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.NavLink), {
+                        to: "/schedule",
+                        className: "nav-link",
+                        children: "Schedule"
+                    }, void 0, false, {
+                        fileName: "src/components/Header.js",
+                        lineNumber: 51,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/Header.js",
+                    lineNumber: 50,
+                    columnNumber: 17
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/Header.js",
+            lineNumber: 6,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Header.js",
+        lineNumber: 5,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Header;
+exports.default = Header;
+var _c;
+$RefreshReg$(_c, "Header");
+
+  $parcel$ReactRefreshHelpers$bfed.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6GfpP":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$efb9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34371,67 +34587,7 @@ $RefreshReg$(_c, "Schedule");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hsJbF":[function(require,module,exports) {
-// import { NavLink } from "react-router-dom";
-// const Header = () => {
-//     return(
-//         <Navbar color='light'>
-//             <Nav>
-//                 <NavItem>
-//                     <NavLink to='/' className='nav-link'>
-//                         Login
-//                     </NavLink>
-//                 </NavItem>
-//                 <NavItem>
-//                     <UncontrolledDropdown inNavbar>
-//                         <DropdownToggle nav caret>
-//                             Instructors
-//                         </DropdownToggle>
-//                         <DropdownMenu right>
-//                             <DropdownItem>
-//                                 <NavLink to='/instructor_select' className='nav-link'>
-//                                 Instructor Course Selection
-//                                 </NavLink>
-//                             </DropdownItem>
-//                             <DropdownItem>
-//                                 <NavLink to='/instructor_genpref' className='nav-link'>
-//                                 Instructor General Preferences
-//                                 </NavLink>
-//                             </DropdownItem>
-//                         </DropdownMenu>
-//                     </UncontrolledDropdown>
-//                 </NavItem>
-//                 <NavItem>
-//                 <UncontrolledDropdown inNavbar>
-//                         <DropdownToggle nav caret>
-//                             Graders
-//                         </DropdownToggle>
-//                         <DropdownMenu end>
-//                             <DropdownItem>
-//                                 <NavLink to='/releaser_select' className='nav-link'>
-//                                 Releaser Course Selection
-//                                 </NavLink>
-//                             </DropdownItem>
-//                             <DropdownItem>
-//                                 <NavLink to='/releaser_genpref' className='nav-link'>
-//                                 Releaser General Preferences
-//                                 </NavLink>
-//                             </DropdownItem>
-//                         </DropdownMenu>
-//                     </UncontrolledDropdown>
-//                 </NavItem>
-//                 <NavItem>
-//                     <NavLink to='/schedule' className='nav-link'>
-//                         Schedule
-//                     </NavLink>
-//                 </NavItem>
-//             </Nav>
-//         </Navbar>
-//     );
-// }
-// export default Header;
-
-},{}]},["1xC6H","jiK7B","d7jqD"], "d7jqD", "parcelRequire3067")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","jiK7B","d7jqD"], "d7jqD", "parcelRequire3067")
 
 </script>
 </body>

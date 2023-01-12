@@ -9,20 +9,25 @@ import Schedule from './pages/Schedule';
 import Header from './components/Header';
 
 function App() {
-    return (
-    <>
-      {/* <Header /> */}
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='instructor_select' element={<InstrCourseSelect />} />
-        <Route path='instructor_genpref' element={<InstrGenPref />} />
-        <Route path='releaser_select' element={<ReleaserCourseSelect />} />
-        <Route path='releaser_genpref' element={<ReleaserGenPref />} />
-        <Route path='schedule' element={<Schedule />} />
-        <Route path='*' element={<Login />} />
-      </Routes> 
-    </>
-    );
+
+  // if (!loggedIn) {
+  //   return <Login setLoggedIn={setLoggedIn}/>
+  // }
+
+  return (
+  <>
+    {/* <Header /> */}
+    <Routes>
+      <Route path='/' element={<Login />} />
+      <Route path='instructor_select' element={<InstrCourseSelect />} />
+      <Route path='instructor_genpref' element={<InstrGenPref />} />
+      <Route path='releaser_select' element={<ReleaserCourseSelect />} />
+      <Route path='releaser_genpref' element={<ReleaserGenPref />} />
+      <Route path='schedule' element={<Schedule />} />
+      <Route path='*' element={<Login />} />
+    </Routes> 
+  </>
+  );
   }
 
 export default App;

@@ -1,14 +1,29 @@
 import { Formik, Field, Form } from 'formik';
+import { useState } from 'react';
 import * as style from './login.scss';
 // import Logo from '../images/AopS_Online_Logos_AOPS Online Cube.png';
 import { authenticateUser } from '../../../schedule-app/main';
+import InstrCourseSelect from '../InstrCourseSelect';
+import Header from '../../components/Header';
 
 const Login = () => {
+    const [loggedIn, setLoggedIn] = useState(false);
     const handleSubmit = ({ username }, { resetForm }) => {
         console.log(username);
-        google.script.run.withSuccessHandler((result) => console.log(result)).authenticateUser(username);
-        // google.script.run.authenticateUser(values.username);
+        // google.script.run.withSuccessHandler((result) => console.log(result)).authenticateUser(username);
+        google.script.run.withSuccessHandler(setLoggedIn).authenticateUser(username);
         resetForm();
+    }
+
+    if (loggedIn) {
+        console.log(loggedIn);
+        return (
+            <>
+                {/* <Header /> */}
+                <InstrCourseSelect />
+            </>
+
+        )
     }
 
     return (
